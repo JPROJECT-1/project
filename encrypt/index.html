@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encrypt</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <section id="form-view">
+      <h1 id="form-title">Encrypt</h1>
+      <div class="form" id="form">
+        <div class="form-item">
+          <label for="encrypt">Encrypt:</label><br />
+          <textarea
+            name="encrypt"
+            id="encrypt"
+            placeholder="Encrypt"
+            oninput="encryptData(this.value)"
+          ></textarea>
+        </div>
+        <div class="form-item">
+          <label for="output">Output:</label><br />
+          <textarea
+            name="output"
+            id="output"
+            placeholder="Output"
+            readonly
+          ></textarea>
+        </div>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>

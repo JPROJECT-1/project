@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project List</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <section id="main-view">
+      <h1>My Project List</h1>
+      <div class="f">
+        <input type="text" id="searchBar" placeholder="Search projects..." />
+      </div>
+      <div class="project-list" id="projectList">
+        <!-- Projects will be dynamically loaded here -->
+        <div class="project-item">
+          <i class="fas fa-unlock-alt"></i>
+          <span class="name">Local Storage</span>
+          <i class="fas fa-edit edit" title="Open"></i>
+        </div>
+        <div class="project-item">
+          <i class="fas fa-lock"></i>
+          <span class="name">Local Storage</span>
+          <i class="fas fa-edit edit" title="Open"></i>
+        </div>
+      </div>
+      <br />
+      <div class="project-list" id="projectList">
+        <div class="project-item">
+          <div class="btns">
+            <button class="btn btn-s hidden" id="main-btn">Tambah</button>
+            <button class="btn btn-s" id="add-btn">Tambah</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="form-view" class="hidden">
+      <h1 id="form-title">Tambah Data</h1>
+      <div class="form" id="form">
+        <div class="form-item">
+          <label for="nama">Nama:</label><br />
+          <input type="text" id="nama" placeholder="Nama" />
+        </div>
+        <div class="form-item">
+          <label for="value">Value:</label><br />
+          <textarea name="value" id="value" placeholder="Value"></textarea>
+        </div>
+        <div class="form-item">
+          <label for="data-type">Jenis Data:</label><br />
+          <select id="data-type" onchange="showPasswords(this.value)">
+            <option value="public">Public</option>
+            <option value="private">Private</option>
+          </select>
+          <br /><br />
+          <div id="passwordd">
+            <label for="password">Password:</label><br />
+            <input type="password" id="password" /><br /><br />
+          </div>
+        </div>
+        <div class="form-item">
+          <div class="btns">
+            <button class="btn btn-b" id="cancel-btn">Batal</button>
+            <button class="btn btn-h" id="delete-btn">Hapus</button>
+            <button class="btn btn-s" id="submit-btn">Simpan</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
