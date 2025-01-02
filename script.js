@@ -2,17 +2,17 @@ const projects = [
   {
     name: "Local Storage",
     icon: "fa-database",
-    link: "/local-storage",
+    link: "local-storage",
   },
   {
     name: "Encrypt",
     icon: "fa-lock",
-    link: "/local-storage",
+    link: "encrypt",
   },
   {
     name: "Decrypt",
     icon: "fa-unlock",
-    link: "/decrypt",
+    link: "decrypt",
   },
 ];
 
@@ -38,7 +38,7 @@ function renderProjects(filter = "") {
 
       // Menambahkan event listener ke ikon "open"
       item.querySelector(".open").addEventListener("click", () => {
-        window.open(window.location.origin + project.link, "_blank");
+        window.open(window.location.href + project.link, "_blank");
       });
 
       projectList.appendChild(item);
