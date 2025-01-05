@@ -19,40 +19,30 @@
       </div>
       <div class="project-list" id="projectList">
         <!-- Projects will be dynamically loaded here -->
-        <div class="project-item">
-          <i class="fas fa-unlock-alt"></i>
-          <span class="name">Local Storage</span>
-          <i class="fas fa-edit edit" title="Open"></i>
-        </div>
-        <div class="project-item">
-          <i class="fas fa-lock"></i>
-          <span class="name">Local Storage</span>
-          <i class="fas fa-edit edit" title="Open"></i>
-        </div>
       </div>
       <br />
       <div class="project-list" id="projectList">
         <div class="project-item">
           <div class="btns">
-            <button class="btn btn-s hidden" id="main-btn">Tambah</button>
-            <button class="btn btn-s" id="add-btn">Tambah</button>
+            <button class="btn btn-s hidden" id="main-btn">Add</button>
+            <button class="btn btn-s" id="add-btn">Add</button>
           </div>
         </div>
       </div>
     </section>
     <section id="form-view" class="hidden">
-      <h1 id="form-title">Tambah Data</h1>
+      <h1 id="form-title">Add Data</h1>
       <div class="form" id="form">
         <div class="form-item">
-          <label for="nama">Nama:</label><br />
-          <input type="text" id="nama" placeholder="Nama" />
+          <label for="nama">Name:</label><br />
+          <input type="text" id="nama" placeholder="Name" />
         </div>
         <div class="form-item">
           <label for="value">Value:</label><br />
           <textarea name="value" id="value" placeholder="Value"></textarea>
         </div>
         <div class="form-item">
-          <label for="data-type">Jenis Data:</label><br />
+          <label for="data-type">Type Data:</label><br />
           <select id="data-type" onchange="showPasswords(this.value)">
             <option value="public">Public</option>
             <option value="private">Private</option>
@@ -65,9 +55,9 @@
         </div>
         <div class="form-item">
           <div class="btns">
-            <button class="btn btn-b" id="cancel-btn">Batal</button>
-            <button class="btn btn-h" id="delete-btn">Hapus</button>
-            <button class="btn btn-s" id="submit-btn">Simpan</button>
+            <button class="btn btn-b" id="cancel-btn">Close</button>
+            <button class="btn btn-h" id="delete-btn">Delete</button>
+            <button class="btn btn-s" id="submit-btn">Save</button>
           </div>
         </div>
       </div>

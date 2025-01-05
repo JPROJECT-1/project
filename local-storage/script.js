@@ -62,13 +62,13 @@ function renderProjects(filter = "") {
     const key = localStorage.key(i);
     if (key.toLowerCase().includes(filter.toLowerCase())) {
       if (key.startsWith("sv-")) {
-        const { type } = JSON.parse(localStorage.getItem(key)).type;
+        const type2 = JSON.parse(localStorage.getItem(key)).type;
         const item = document.createElement("div");
         item.classList.add("project-item");
 
         item.innerHTML = `
                       <i class="fas ${
-                        type === "private" ? "fa-lock" : "fa-unlock-alt"
+                        type2 === "private" ? "fa-lock" : "fa-unlock-alt"
                       }"></i>
                       <span class="name">${key.replace("sv-", "")}</span>
                       <i class="fas fa-edit edit" title="edit" onclick="editData('${key}')"></i>

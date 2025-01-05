@@ -1,38 +1,18 @@
 const projects = [
   {
-    name: "Make A Webs",
-    icon: "fa-tools",
-    link: "make webs",
+    name: "Encrypt & Decrypt",
+    icon: "fa-lock",
+    link: "encrypt-decrypt",
   },
   {
-    name: "Location",
-    icon: "fa-map-marker-alt",
-    link: "location",
+    name: "Biner",
+    icon: "fa-globe",
+    link: "biner",
   },
   {
-    name: "Local Storage",
-    icon: "fa-database",
-    link: "local-storage",
-  },
-  {
-    name: "Share Storage",
-    icon: "fa-folder-open",
-    link: "share storage",
-  },
-  {
-    name: "Convert Text",
-    icon: "fa-language",
-    link: "convert text",
-  },
-  {
-    name: "Convert File",
-    icon: "fa fa-file-alt",
-    link: "convert file",
-  },
-  {
-    name: "Convert Voice",
-    icon: "fa-microphone",
-    link: "convert voice",
+    name: "Morse",
+    icon: "fa-globe",
+    link: "morse",
   },
 ];
 

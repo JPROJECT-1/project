@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Share Storage</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="shortcut icon" href="../projects.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <section id="main-view">
+      <h1>Share Storage</h1>
+      <div class="f">
+        <input type="text" id="searchBar" placeholder="Search projects..." />
+      </div>
+      <div class="project-list" id="projectList">
+        <!-- Projects will be dynamically loaded here -->
+      </div>
+      <br />
+      <div class="project-list" id="projectList">
+        <div class="project-item">
+          <div class="sb">
+            <p id="usernamet">#user-juiykj</p>
+            <button class="btn btn-s" onclick="showFormView()">Edit</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="form-view" class="hidden">
+      <h1 id="form-title">Edit Data</h1>
+      <div class="form" id="form">
+        <div class="form-item">
+          <label for="nama">Nama:</label><br />
+          <input type="text" id="nama" placeholder="Nama" readonly />
+        </div>
+        <div class="form-item">
+          <label for="value">Value:</label><br />
+          <textarea name="value" id="value" placeholder="Value"></textarea>
+        </div>
+        <div class="form-item" id="passwordd2">
+          <label for="data-type">Jenis Data:</label><br />
+          <select id="data-type" onchange="showPasswords(this.value)">
+            <option value="public">Public</option>
+            <option value="private">Private</option>
+          </select>
+          <br /><br />
+          <div id="passwordd" class="hidden">
+            <label for="password">Password:</label><br />
+            <input type="password" id="password" /><br /><br />
+          </div>
+        </div>
+        <div class="form-item">
+          <div class="btns">
+            <button class="btn btn-b" onclick="showMainView()">Close</button>
+            <button class="btn btn-s" id="submit-btn" onclick="submitform()">
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script>
+      function generateRandomUsername() {
+        const prefix = "user-";
+        const randomStringLength = 6;
+        const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
+        let randomString = "";
+        for (let i = 0; i < randomStringLength; i++) {
+          const randomIndex = Math.floor(Math.random() * characters.length);
+          randomString += characters[randomIndex];
+        }
+        return prefix + randomString;
+      }
+
+      function getOrCreateUsername() {
+        // Periksa apakah username sudah ada di localStorage
+        let username = localStorage.getItem("user");
+
+        if (!username) {
+          // Jika tidak ada, generate username baru
+          username = generateRandomUsername();
+          localStorage.setItem("user", username); // Simpan username ke localStorage
+        }
+
+        return username;
+      }
+      const usernameu = getOrCreateUsername();
+    </script>
+    <script src="script.js"></script>
+    <script>
+      // Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAeKiSWj3LbpCXpmrCNKe7yCl-DIiNaZ-M",
+        authDomain: "share-1d51d.firebaseapp.com",
+        projectId: "share-1d51d",
+        storageBucket: "share-1d51d.firebasestorage.app",
+        messagingSenderId: "570818771836",
+        appId: "1:570818771836:web:f2f9104b2cf52d7e2882f9",
+        measurementId: "G-P8CRVSZS0T",
+      };
+
+      // Initialize Firebase
+      const app = firebase.initializeApp(firebaseConfig);
+      const database = firebase.database(app);
+
+      let svstorages;
+
+      function getstoragesFromFirebase() {
+        const storagesRef = database.ref("storage/");
+
+        storagesRef
+          .once("value")
+          .then((snapshot) => {
+            const storages = snapshot.val();
+
+            if (storages) {
+              list(storages);
+              svstorages = storages;
+            } else {
+              console.log("Tidak ada data di storage/");
+            }
+          })
+          .catch((error) => {
+            console.log(`Gagal mengambil data: ${error.message}`);
+          });
+      }
+
+      function addDataToFirebase(data) {
+        const userRef = database.ref("storage/" + usernameu);
+
+        userRef
+          .set(data)
+          .then(() => {
+            console.log("Data berhasil ditambahkan:");
+            console.log(data);
+            window.location.reload();
+          })
+          .catch((error) => {
+            console.error("Gagal menambahkan data:", error.message);
+          });
+      }
+
+      window.onload = getstoragesFromFirebase;
+    </script>
+  </body>
+</html>

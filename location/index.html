@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Location</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="shortcut icon" href="../projects.ico" type="image/x-icon" />
+    <style>
+      #map {
+        height: 70vh; /* Atur tinggi peta */
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="form-view">
+      <h1 id="form-title">Location</h1>
+      <div class="form" id="form">
+        <div class="form-item">
+          <label for="latitude">Latitude:</label><br />
+          <input type="text" id="latitude" placeholder="Latitude" /><br />
+          <label for="longitude">Longitude:</label><br />
+          <input type="text" id="longitude" placeholder="Longitude" /><br />
+        </div>
+        <div class="form-item">
+          <div class="btns">
+            <button class="btn btn-s" onclick="updateLocations()">
+              My Location
+            </button>
+          </div>
+        </div>
+        <div class="form-item">
+          <label for="map">Map:</label>
+          <div id="map"></div>
+        </div>
+        <div class="form-item">
+          <div class="btns">
+            <button class="btn btn-s" onclick="updateLocation()">Check</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

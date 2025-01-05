@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Convert Voice</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="shortcut icon" href="../projects.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <section id="form-view">
+      <h1 id="form-title">Convert Voice</h1>
+      <div class="form" id="form">
+        <div class="form-item">
+          <label for="text">Text:</label><br />
+          <textarea name="text" id="text" placeholder="Text"></textarea>
+        </div>
+        <div class="form-item">
+          <label for="language-select">Pilih Bahasa:</label> <br />
+          <select id="language-select">
+            <option value="en-US">English (US)</option>
+            <option value="id-ID">Indonesian</option>
+            <option value="es-ES">Spanish</option>
+            <option value="fr-FR">French</option>
+            <!-- Tambahkan opsi bahasa lainnya sesuai kebutuhan --></select
+          ><br /><br />
+
+          <label for="rate-slider">Kecepatan:</label> <br />
+          <input
+            type="range"
+            id="rate-slider"
+            min="0.5"
+            max="2"
+            step="0.1"
+            value="1"
+          />
+          <br />
+          <span id="rate-value">1.0</span><br /><br />
+
+          <label for="pitch-slider">Nada:</label><br />
+          <input
+            type="range"
+            id="pitch-slider"
+            min="0.5"
+            max="2"
+            step="0.1"
+            value="1"
+          />
+          <br />
+          <span id="pitch-value">1.0</span><br /><br />
+        </div>
+        <div class="form-item">
+          <div class="btns">
+            <button class="btn btn-s" onclick="speakText()">Convert</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
